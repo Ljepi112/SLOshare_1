@@ -135,7 +135,7 @@ trait Auditable
 
         if (! \is_null($userId) && ! empty($data)) {
             // Store record
-            $now = Carbon::now()->format('d.m.Y H:i:s');
+            $now = Carbon::now()->format('Y-m-d H:i:s');
             DB::table('audits')->insert([
                 'user_id'        => $userId,
                 'model_name'     => \class_basename($model),
@@ -163,7 +163,7 @@ trait Auditable
 
         if (! \is_null($userId) && ! empty(\json_decode($data, true, 512, JSON_THROW_ON_ERROR))) {
             // Store record
-            $now = Carbon::now()->format('d.m.Y H:i:s');
+            $now = Carbon::now()->format('Y-m-d H:i:s');
             DB::table('audits')->insert([
                 'user_id'        => $userId,
                 'model_name'     => \class_basename($model),
